@@ -9,7 +9,7 @@ let books =[
     {id: 1, title: "Pepparkakshuset", author: "Carin Gerhardsen", borrowed: false},
 ]
 
-/* GET users listing. */
+/* GET books listing. */
 router.get('/', function(req, res, next) {
   res.json('books');
 });
@@ -24,7 +24,7 @@ router.post('/', function(req, res, next) {
     res.json(books);           // skickar books-arrayen som svar                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
   });
 
-router.get('/:bookId', function(req, res, next){   // next måste inte vara med, däremot reqest och response
+router.get('/:bookId', function(req, res){   // next måste inte vara med, däremot reqest och response
   let bookId = req.params.bookId;
   console.log(bookId);
 
@@ -37,7 +37,7 @@ router.post('/borrowed', function(req, res, next) {
     let bookId = req.body.bookId;
     console.log(bookId);
 
-    let borrowedBook = books.find(books => books.id == bookId);
+    let borrowedBook = books.find(books => books.id == bookId)
     borrowedBook.borrowed =!borrowedBook.borrowed;
     console.log("book borrowed", borrowedBook);
     console.log("all books", books);
