@@ -2,19 +2,19 @@ var express = require('express');
 var router = express.Router();
 
 let books =[
-    {id: 1, title: "Napalm", author: "Frida Moisto", borrowed: false},
-    {id: 1, title: "Spindeln", author: "Lars Kepler", borrowed: false},
-    {id: 1, title: "Midnattsdåd", author: "Nora Roberts", borrowed: false},
-    {id: 1, title: "Lazarus", author: "Lars Kepler", borrowed: false},
-    {id: 1, title: "Pepparkakshuset", author: "Carin Gerhardsen", borrowed: false},
+    {id: 1, title: "Napalm", author: "Frida Moisto", pages: "350", borrowed: false},
+    {id: 1, title: "Spindeln", author: "Lars Kepler", pages: "450", borrowed: false},
+    {id: 1, title: "Midnattsdåd", author: "Nora Roberts", pages: "500", borrowed: false},
+    {id: 1, title: "Lazarus", author: "Lars Kepler", pages: "700", borrowed: false},
+    {id: 1, title: "Pepparkakshuset", author: "Carin Gerhardsen", pages: "570", borrowed: false},
 ]
 
 /* GET books listing. */
-router.get('/', function(req, res, next) {
-  res.json('books');
+router.get('/', function(req, res) {
+  res.json(books);
 });
 
-router.post('/', function(req, res, next) {
+router.post('/', function(req, res) {
 
     let newBook = req.body;   //hämtar värdet som är sparat i body och sparar det objektet i newBook
     console.log(req.body);
